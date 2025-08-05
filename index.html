@@ -13,6 +13,38 @@
             --primary-dark: #8B0000;
             --secondary: #36454F;
             --light: #F5F5F5;
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --text-muted: #6b7280;
+            --card-bg: #ffffff;
+            --footer-bg: #1a1a1a;
+            --nav-bg: #ffffff;
+            --section-bg: #ffffff;
+            --section-alt-bg: #f5f5f5;
+            --testimonial-bg: #ffffff;
+            --form-bg: #ffffff;
+            --border-color: #e5e7eb;
+        }
+
+        .dark-mode {
+            --bg-color: #121212;
+            --text-color: #e5e5e5;
+            --text-muted: #9ca3af;
+            --card-bg: #1e1e1e;
+            --footer-bg: #0a0a0a;
+            --secondary: #a3a3a3;
+            --nav-bg: #1a1a1a;
+            --section-bg: #1a1a1a;
+            --section-alt-bg: #262626;
+            --testimonial-bg: #262626;
+            --form-bg: #262626;
+            --border-color: #404040;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
         }
         
         body {
@@ -21,7 +53,7 @@
         }
         
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1607863686769-e9f57a2f4e0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1601134467661-3d775b999c8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1975&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -115,44 +147,49 @@
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 dark:bg-gray-900">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white shadow-md z-50 transition-all duration-300">
+    <nav class="fixed w-full bg-[var(--nav-bg)] shadow-md z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
                 <div class="flex items-center">
                     <div class="bg-red-700 text-white p-2 rounded mr-2">
                         <i class="fas fa-shield-alt text-xl"></i>
                     </div>
-                    <a href="#" class="text-2xl font-bold text-gray-800">
-                        <span class="text-red-700">Shield</span><span class="text-gray-700">Guard</span>
+                    <a href="#" class="text-2xl font-bold text-[var(--text-color)]">
+                        <span class="text-red-700">Shield</span><span class="text-[var(--secondary)]">Guard</span>
                     </a>
                 </div>
                 
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link text-gray-700 hover:text-red-700 py-2">Home</a>
-                    <a href="#about" class="nav-link text-gray-700 hover:text-red-700 py-2">About</a>
-                    <a href="#services" class="nav-link text-gray-700 hover:text-red-700 py-2">Services</a>
-                    <a href="#why-us" class="nav-link text-gray-700 hover:text-red-700 py-2">Why Us</a>
-                    <a href="#testimonials" class="nav-link text-gray-700 hover:text-red-700 py-2">Testimonials</a>
-                    <a href="#contact" class="nav-link text-gray-700 hover:text-red-700 py-2">Contact</a>
+                    <a href="#home" class="nav-link text-[var(--text-color)] hover:text-red-700 py-2">Home</a>
+                    <a href="#about" class="nav-link text-[var(--text-color)] hover:text-red-700 py-2">About</a>
+                    <a href="#services" class="nav-link text-[var(--text-color)] hover:text-red-700 py-2">Services</a>
+                    <a href="#why-us" class="nav-link text-[var(--text-color)] hover:text-red-700 py-2">Why Us</a>
+                    <a href="#testimonials" class="nav-link text-[var(--text-color)] hover:text-red-700 py-2">Testimonials</a>
+                    <a href="#contact" class="nav-link text-[var(--text-color)] hover:text-red-700 py-2">Contact</a>
                 </div>
                 
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
-                        <i class="fas fa-bars text-2xl"></i>
+                <div class="flex items-center space-x-4">
+                    <button id="dark-mode-toggle" class="text-[var(--text-color)] focus:outline-none">
+                        <i class="fas fa-moon text-xl" id="dark-mode-icon"></i>
                     </button>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="text-gray-700 dark:text-gray-300 focus:outline-none">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
             
             <!-- Mobile menu -->
             <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <a href="#home" class="block py-2 text-gray-700 hover:text-red-700">Home</a>
-                <a href="#about" class="block py-2 text-gray-700 hover:text-red-700">About</a>
-                <a href="#services" class="block py-2 text-gray-700 hover:text-red-700">Services</a>
-                <a href="#why-us" class="block py-2 text-gray-700 hover:text-red-700">Why Us</a>
-                <a href="#testimonials" class="block py-2 text-gray-700 hover:text-red-700">Testimonials</a>
-                <a href="#contact" class="block py-2 text-gray-700 hover:text-red-700">Contact</a>
+                <a href="#home" class="block py-2 text-[var(--text-color)] hover:text-red-700">Home</a>
+                <a href="#about" class="block py-2 text-[var(--text-color)] hover:text-red-700">About</a>
+                <a href="#services" class="block py-2 text-[var(--text-color)] hover:text-red-700">Services</a>
+                <a href="#why-us" class="block py-2 text-[var(--text-color)] hover:text-red-700">Why Us</a>
+                <a href="#testimonials" class="block py-2 text-[var(--text-color)] hover:text-red-700">Testimonials</a>
+                <a href="#contact" class="block py-2 text-[var(--text-color)] hover:text-red-700">Contact</a>
             </div>
         </div>
     </nav>
@@ -169,11 +206,11 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
+    <section id="about" class="py-20 bg-[var(--section-bg)]">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0 fade-in slide-left">
-                    <img src="https://images.unsplash.com/photo-1603712725038-e9334ae8a39f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Fire Protection Experts" class="rounded-lg shadow-xl w-full">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Fire Protection Experts" class="rounded-lg shadow-xl w-full">
                 </div>
                 <div class="md:w-1/2 md:pl-12 fade-in slide-right">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">About ShieldGuard</h2>
@@ -226,7 +263,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-50">
+    <section id="services" class="py-20 bg-[var(--section-alt-bg)]">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
@@ -235,7 +272,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
-                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden fade-in">
+                <div class="service-card bg-[var(--card-bg)] rounded-lg shadow-md overflow-hidden fade-in">
                     <div class="p-6">
                         <div class="text-red-700 text-4xl mb-4">
                             <i class="fas fa-fire-extinguisher"></i>
@@ -400,7 +437,7 @@
     </section>
 
     <!-- Why Choose Us Section -->
-    <section id="why-us" class="py-20 bg-white">
+    <section id="why-us" class="py-20 bg-[var(--section-bg)]">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Why Choose ShieldGuard</h2>
@@ -409,7 +446,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div class="fade-in slide-left">
-                    <div class="bg-gray-50 p-8 rounded-lg h-full">
+                    <div class="bg-[var(--card-bg)] p-8 rounded-lg h-full">
                         <h3 class="text-2xl font-bold text-gray-800 mb-6">Our Approach</h3>
                         
                         <div class="space-y-6">
@@ -488,7 +525,7 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-gray-50">
+    <section id="testimonials" class="py-20 bg-[var(--section-alt-bg)]">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16 fade-in">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
@@ -499,7 +536,7 @@
                 <div class="testimonial-carousel flex overflow-x-auto snap-x snap-mandatory scrollbar-hide" style="scrollbar-width: none;">
                     <!-- Testimonial 1 -->
                     <div class="testimonial-slide flex-shrink-0 w-full px-4">
-                        <div class="bg-white p-8 rounded-lg shadow-md">
+                        <div class="bg-[var(--testimonial-bg)] p-8 rounded-lg shadow-md">
                             <div class="flex items-center mb-6">
                                 <div class="text-yellow-400 text-2xl mr-2">
                                     <i class="fas fa-star"></i>
@@ -584,7 +621,7 @@
     </section>
 
     <!-- Certifications Section -->
-    <section class="py-16 bg-white">
+    <section class="py-16 bg-[var(--section-bg)]">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12 fade-in">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Certifications</h2>
@@ -620,7 +657,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50">
+    <section id="contact" class="py-20 bg-[var(--section-alt-bg)]">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row">
                 <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12 fade-in slide-left">
@@ -679,7 +716,7 @@
                 </div>
                 
                 <div class="md:w-1/2 fade-in slide-right">
-                    <form id="contactForm" class="bg-white p-8 rounded-lg shadow-md">
+                    <form id="contactForm" class="bg-[var(--form-bg)] p-8 rounded-lg shadow-md">
                         <div class="mb-6">
                             <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
                             <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-700" required>
@@ -980,6 +1017,32 @@
             alert('Thank you for your message! We will get back to you soon.');
             this.reset();
         });
+
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const darkModeIcon = document.getElementById('dark-mode-icon');
+        let darkMode = localStorage.getItem('darkMode') === 'enabled';
+
+        if (darkMode) {
+            document.body.classList.add('dark-mode');
+            darkModeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            darkMode = !darkMode;
+            document.body.classList.toggle('dark-mode');
+            
+            if (darkMode) {
+                darkModeIcon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                darkModeIcon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+
+        // Dynamic copyright year
+        document.querySelector('footer p').innerHTML = `&copy; ${new Date().getFullYear()} ShieldGuard Fire Protection. All rights reserved.`;
     </script>
 </body>
 </html>
